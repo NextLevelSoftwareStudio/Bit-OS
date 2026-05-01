@@ -1,0 +1,7 @@
+app-admin/sudo #Sudo
+dev-lang/python #Python
+sys-devel/gcc #GCC
+sys-apps/env-update #Env-update
+kde-plasma/plasma-desktop #Minimall KDE Plasma
+gnome-extra/nemo #Nemo file manager
+kde-apps/konsole # KDE Plasma original console

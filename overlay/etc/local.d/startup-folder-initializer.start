@@ -1,5 +1,7 @@
 #!/bin/bash
-STARTUP_FOLDER="/System/Startup"
+
+#Initializes all System Startup files
+STARTUP_FOLDER="/System/Startup/System"
 if [[ ! -d "$STARTUP_FOLDER" ]]; then
     echo "Erro: A pasta '$STARTUP_FOLDER' não foi encontrada. Verifique o caminho no script."
     mkdir $STARTUP_FOLDER
@@ -13,3 +15,6 @@ find "$STARTUP_FOLDER" -type f -executable ! -path "$(readlink -f "$0")" -exec s
     done
 ' sh {} +
 echo "Initializing was ended with sucess."
+
+# initializing all the user startup files
+USER_STARTUP_FOLDER="/System/Startup/Users"
