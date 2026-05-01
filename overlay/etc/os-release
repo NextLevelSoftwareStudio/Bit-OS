@@ -1,0 +1,4 @@
+NAME="Bit-OS"
+ID=bit-os
+ID_LIKE=gentoo
+PRETTY_NAME="Bit-OS"

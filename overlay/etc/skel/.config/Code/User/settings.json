@@ -1,0 +1,17 @@
+{
+    "editor.unicodeHighlight.nonBasicASCII": true,
+    "git.autofetch": true,
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "explorer.confirmDragAndDrop": false,
+    "editor.unicodeHighlight.allowedCharacters": {"·": true},
+    "editor.inlineSuggest.enabled": true,
+    "chat.viewSessions.orientation": "stacked",
+    "files.autoSave": "afterDelay",
+    "workbench.colorTheme": "Dark+",
+    "editor.hover.enabled": "off",
+    "editor.ruleSettings": [],
+    "editor.rulers": [80, 120],
+    "editor.renderWhitespace": "boundary",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.lightbulb.enabled": "off"
+}

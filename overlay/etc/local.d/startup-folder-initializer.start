@@ -1,0 +1,15 @@
+#!/bin/bash
+STARTUP_FOLDER="/System/Startup"
+if [[ ! -d "$STARTUP_FOLDER" ]]; then
+    echo "Erro: A pasta '$STARTUP_FOLDER' não foi encontrada. Verifique o caminho no script."
+    mkdir $STARTUP_FOLDER
+    exit 1
+fi
+echo "Initializing all files in the $STARTUP_FOLDER FOLDER folder."
+find "$STARTUP_FOLDER" -type f -executable ! -path "$(readlink -f "$0")" -exec sh -c '
+    for file do
+        echo "Initializing: $file"
+        ("$file" > /dev/null 2>&1 &) disown
+    done
+' sh {} +
+echo "Initializing was ended with sucess."
