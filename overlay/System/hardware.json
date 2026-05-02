@@ -1,29 +1,54 @@
 {
     "cpu": {
         "1": {
-            "name": "",
+            "pretty_name": "",
+            "manufacturer": "",
+            "architecture": "",
             "cores": 0,
             "threads": 0,
             "virtualization": false
         }
     },
     "gpu": {
-        "1": {}
+        "1": {
+            "pretty_name": "",
+            "manufacturer": "",
+            "model": "",
+            "vram": 0,
+            "drivers": ""
+        }
     },
     "ram": {
-        "1": {}
+        "1": {
+            "pretty_name": "",
+            "capacity": 0,
+            "type": "",
+            "speed": 0,
+            "manufacturer": ""
+        }
     },
     "storage": {
         "1": {
-            "name": "",
+            "pretty_name": "",
+            "manufacturer": "",
             "capacity": 0,
             "type": ""
         }
     },
     "network": {
-        "1": {}
+        "1": {
+            "pretty_name": "",
+            "manufacturer": "",
+            "type": "",
+            "speed": 0
+        }
     },
     "motherboard": {
-        "1": {}
+        "1": {
+            "pretty_name": "",
+            "manufacturer": "",
+            "model": "",
+            "chipset": ""
+        }
     }
 }
