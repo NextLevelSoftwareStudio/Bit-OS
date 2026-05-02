@@ -1,4 +1,4 @@
-# 🌀 Bit-OS Linux
+# Bit-OS
 
 > Uma distribuição **Rolling Release** baseada em **Gentoo Linux**, focada em performance máxima, simplicidade e automação total. Desenvolvido e mantido pela **Next Level Software Studio**.
 
@@ -9,10 +9,10 @@ O **Bit-OS** oferece a robustez do Gentoo com a simplicidade e leveza do **OpenR
 ## 🌍 Idiomas Suportados
 
 O instalador e o sistema configuram nativamente as localidades e teclados para:
-* 🇵🇹 **Português** (Portugal)
-* 🇩🇪 **Alemão** (Alemanha)
-* 🇫🇷 **Francês** (França)
-* 🇺🇸 **Inglês** (Estados Unidos)
+* 🇵🇹 **Português** (pt-PT)
+* 🇩🇪 **Alemão** (de-DE)
+* 🇫🇷 **Francês** (fr-FR)
+* 🇺🇸 **Inglês** (en-US)
 
 ---
 

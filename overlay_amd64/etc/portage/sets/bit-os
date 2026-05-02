@@ -19,3 +19,4 @@ kde-plasma/plasma-pa
 media-video/pipewire
 media-video/wireplumber
 app-portage/cpuid2cpuflags # Utility to get CPU flags for better performance
+app-portage/gentoolkit
