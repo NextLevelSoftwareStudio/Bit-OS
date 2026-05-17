@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import locale, platform, sys, os, subprocess
 from pathlib import Path
 # lang = 'pt_PT', encoding = 'UTF-8'
@@ -40,12 +41,16 @@ while True:
         entrada = input("Que idioma deseja definir com padrão? ").lower()
         if entrada == "":
             entrada = "portuguese"
+        elif entrada in portuguese:
+            entrada = "portuguese"
         language("pt_PT.UTF-8 UTF-8")
         break
     elif lang == "en_US":
         print("Language detected: English")
         entrada = input("What language would you like to set as default? ").lower()
         if entrada == "":
+            entrada = "english"
+        elif entrada in english:
             entrada = "english"
         language("en_US.UTF-8 UTF-8")
         break
@@ -54,6 +59,8 @@ while True:
         entrada = input("Welche Sprache möchten Sie als Standard festlegen? ").lower()
         if entrada == "":
             entrada = "german"
+        elif entrada in german:
+            entrada = "german"
         language("de_DE.UTF-8 UTF-8")
         break
     else:
@@ -61,11 +68,12 @@ while True:
 
 
 message = {
-    "portuguese": "",
-    "english": "",
-    "german": ""
+    "portuguese": "Deseja configurar o portage manualmente ou automaticamente? (y/n)",
+    "english": "Do you want to configure portage manually or automatically? (y/n)",
+    "german": "Möchten Sie Portage manuell oder automatisch konfigurieren? (y/n)"
 }
-input(message[entrada])
+pergunta = input(message[entrada])
+
 
 
 
