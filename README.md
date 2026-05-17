@@ -60,12 +60,19 @@ Nota: use o correto para a arquitetura da sua CPU.
 Dê boot com a ISO oficial do Gentoo e ligue-se à internet.
 
 ### 2. Execução
-O Bit-OS automatiza o particionamento, a extração do Stage3, a compilação do Kernel e a configuração final. Corra o comando:
+Para instalar o Bit-OS corra os comandos abaixo em ordem como root:
 
 ```bash
-wget https://raw.githubusercontent.com/NextLevelSoftwareStudio/Bit-OS/refs/heads/main/installer.py
-chmod +x installer.py
-python ./installer.py
+emerge --ask dev-vcs/git dev-lang/python
+mkdir -p /home/$USER/Bit-OS/temporario
+git -C /home/$USER/Bit-OS/temporario init
+git -C /home/$USER/Bit-OS/temporario remote add origin https://github.com/NextLevelSoftwareStudio/Bit-OS.git
+git -C /home/$USER/Bit-OS/temporario config core.sparseCheckout true
+echo "installer/" >> "$TEMP_DIR/.git/info/sparse-checkout"
+git -C /home/$USER/Bit-OS/temporario pull origin main
+mv /home/$USER/Bit-OS/temporario/installer/* /home/$USER/Bit-OS/
+rm -rf /home/$USER/Bit-OS/temporario
+python "/home/$USER/Bit-OS/installer.py"
 ```
 
 Aviso: O script é auto-suficiente. Ele finalizará a instalação, desmontará as partições e reiniciará o sistema automaticamente quando terminar.
