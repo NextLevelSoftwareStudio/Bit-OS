@@ -9,9 +9,10 @@ portuguese = ["português", "portuguese", "portugiesisch"]
 english = ["inglês", "english", "englisch"]
 german = ["alemão", "german", "deutsch"]
 filesystems = ["ext4", "brtfs", "gpfs"]
+nproc = os.cpu_count()
 
 if encoding != "UTF-8":
-    print("Your system's encoding is not UTF-8. Please change it to UTF-8 to continue.")
+    print("\nYour system's encoding is not UTF-8. Please change it to UTF-8 to continue.\n")
     sys.exit(1)
 
 caminho_modelo = '/proc/device-tree/model'
@@ -22,10 +23,10 @@ if os.path.exists(caminho_modelo): # Verifica se o arquivo existe (sistemas x86 
             if "Raspberry Pi 5" in modelo and cpu_architecture == "aarch64":
                 RASPBERRY = True
             # If not a Raspberry Pi 5 and not aarch64, exit with code 1
-            elif "Raspberry Pi 5" in modelo is False and (cpu_architecture == "aarch64") is False:
+            elif ("Raspberry Pi 5" in modelo is False) and (cpu_architecture == "aarch64") is False:
                 sys.exit(1)
     except Exception:
-        print("Could not read the device model.")
+        print("\nCould not read the device model.\n")
 
 localegenfile = Path('/etc/locale.gen')
 def language(data):
@@ -38,7 +39,7 @@ while True:
         pass
     if lang == "pt_PT":
         print("Idioma detectado: Português")
-        entrada = input("Que idioma deseja definir com padrão? ").lower()
+        entrada = input("\nQue idioma deseja definir com padrão? \n").lower()
         if entrada == "":
             entrada = "portuguese"
         elif entrada in portuguese:
@@ -47,7 +48,7 @@ while True:
         break
     elif lang == "en_US":
         print("Language detected: English")
-        entrada = input("What language would you like to set as default? ").lower()
+        entrada = input("\nWhat language would you like to set as default? \n").lower()
         if entrada == "":
             entrada = "english"
         elif entrada in english:
@@ -56,7 +57,7 @@ while True:
         break
     elif lang == "de_DE":
         print("Sprache erkannt: Deutsch")
-        entrada = input("Welche Sprache möchten Sie als Standard festlegen? ").lower()
+        entrada = input("\nWelche Sprache möchten Sie als Standard festlegen? \n").lower()
         if entrada == "":
             entrada = "german"
         elif entrada in german:
@@ -64,22 +65,27 @@ while True:
         language("de_DE.UTF-8 UTF-8")
         break
     else:
-        print("Language doesn'y exists or ins't available.")
+        print("\nLanguage doesn'y exists or ins't available.\n")
 
 
 message = {
-    "portuguese": "Deseja configurar o portage manualmente ou automaticamente? (y/n)",
-    "english": "Do you want to configure portage manually or automatically? (y/n)",
-    "german": "Möchten Sie Portage manuell oder automatisch konfigurieren? (y/n)"
+    "portuguese": "\nDeseja configurar o Portage automaticamente? (y/n)\n",
+    "english": "\nDo you want to configure Portage automatically? (y/n)\n",
+    "german": "\nMöchten Sie Portage automatisch konfigurieren? (y/n)\n"
 }
 pergunta = input(message[entrada])
+if pergunta.lower() == "n":
+    message = {
+        "portuguese": "\nInsira o conteúdo desejado para o arquivo /etc/portage/make.conf:\n",
+        "english": "\nInsert the desired content for the /etc/portage/make.conf file:\n",
+        "german": "\nGeben Sie den gewünschten Inhalt für die Datei /etc/portage/make.conf ein:\n"
+    }
+    makeconf = input(message[entrada])
+    with open('/etc/portage/make.conf', 'w') as f:
+        f.write(makeconf)
+elif pergunta.lower() == "y":
 
-
-
-
-
-
-
+    
 
 
 
