@@ -58,14 +58,29 @@ while True:
         break
     else:
         print("Language doesn'y exists or ins't available.")
-            
+
+if RASPBERRY:
+    message = {
+        "portuguese": "",
+        "english": "",
+        "german": ""
+    }
+input(message[entrada])
+
+
+
+
+
+
+
+
 
 # wget use flags configuration
 wgetuseflagsfile = Path('/etc/portage/package.use/net-misc/wget')
 with open(wgetuseflagsfile, 'w') as f:
     f.write('net-misc/wget ssl idn nls verify-sig metalink libproxy cookie-check')
 try:
-    subprocess.run(['emerge', '--ask', 'net-misc/wget'], check=True)
-
+    subprocess.run(['emerge', '--sync'], check=True)
+    subprocess.run(['emerge', '--ask', 'net-misc/curl'], check=True)
 except subprocess.CalledProcessError:
     print("Error occurred while installing wget.")
