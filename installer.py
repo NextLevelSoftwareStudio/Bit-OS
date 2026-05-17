@@ -59,12 +59,12 @@ while True:
     else:
         print("Language doesn'y exists or ins't available.")
 
-if RASPBERRY:
-    message = {
-        "portuguese": "",
-        "english": "",
-        "german": ""
-    }
+
+message = {
+    "portuguese": "",
+    "english": "",
+    "german": ""
+}
 input(message[entrada])
 
 

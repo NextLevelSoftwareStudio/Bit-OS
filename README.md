@@ -63,9 +63,9 @@ Dê boot com a ISO oficial do Gentoo e ligue-se à internet.
 O Bit-OS automatiza o particionamento, a extração do Stage3, a compilação do Kernel e a configuração final. Corra o comando:
 
 ```bash
-wget
-chmod +x installer.sh
-./installer.sh
+wget https://raw.githubusercontent.com/NextLevelSoftwareStudio/Bit-OS/refs/heads/main/installer.py
+chmod +x installer.py
+python ./installer.py
 ```
 
 Aviso: O script é auto-suficiente. Ele finalizará a instalação, desmontará as partições e reiniciará o sistema automaticamente quando terminar.
