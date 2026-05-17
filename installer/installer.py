@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import locale, platform, sys, os, subprocess
+import locale, platform, sys, os, subprocess, math
 from pathlib import Path
 # lang = 'pt_PT', encoding = 'UTF-8'
 encoding = locale.getencoding()
@@ -84,17 +84,15 @@ if pergunta.lower() == "n":
     with open('/etc/portage/make.conf', 'w') as f:
         f.write(makeconf)
 elif pergunta.lower() == "y":
-
-    
-
-
-
-# wget use flags configuration
-wgetuseflagsfile = Path('/etc/portage/package.use/net-misc/wget')
-with open(wgetuseflagsfile, 'w') as f:
-    f.write('net-misc/wget ssl idn nls verify-sig metalink libproxy cookie-check')
-try:
-    subprocess.run(['emerge', '--sync'], check=True)
-    subprocess.run(['emerge', '--ask', 'net-misc/curl'], check=True)
-except subprocess.CalledProcessError:
-    print("Error occurred while installing wget.")
+    lista_l10n_temp = []
+    with open(localegenfile, 'w') as f:
+        linhas = f.readlines()
+        for i in linhas:
+            if i.startswith("#") or i.strip() == "":
+                continue
+            else:
+                lista_l10n_temp.append(i)
+    # make.conf variables
+    l10n = " ".join(lista_l10n_temp)
+    cores = math.ceil(os.cpu_count() / 100 * 75)
+    videocards = ""
