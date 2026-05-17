@@ -7,3 +7,4 @@ __pycache__/
 list.txt
 tree.txt
 *.pub
+test.py
