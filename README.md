@@ -14,6 +14,7 @@ A identidade da distribuição assenta no **BPM (Bit-OS Package Manager)**, um g
 * **Controlo de Versão por Commits:** Como a estrutura da distro assenta no Git, utilizadores avançados têm a flexibilidade de retroceder o estado global do sistema para commits específicos do repositório.
 * **Suporte Multi-Plataforma:** Compatibilidade total com PCs de 64 bits (`amd64`) e otimização dedicada para o **Raspberry Pi 5**.
 
+* **Organização de Ficheiros:** Este sistema suporta o FHS e o NLFH (New Linux File Hierarchy) feito pela NLSS.
 ---
 
 ## 🌐 Idiomas Suportados
